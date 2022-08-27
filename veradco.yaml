@@ -1,0 +1,11 @@
+banner: "veradcoBanner"
+plugins:
+- name: "plug1"
+  path: "/home/lobuntu/go/src/test_plugin/plug1/plug.so"
+  params: "--verbose -n veradco"
+- name: "plug2"
+  path: "/home/lobuntu/go/src/test_plugin/plug2/plug.so"
+  params: "init -n veradco"
+- name: "plug_ext"
+  path: "/home/lobuntu/go/src/test_plugin/plug_ext.so"
+  params: "Plugin created by anyone"
