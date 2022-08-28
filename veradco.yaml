@@ -1,7 +1,7 @@
 banner: "veradcoBanner"
 plugins:
 - name: "plug1"
-  path: "/home/lobuntu/go/src/test_plugin/plug1/plug.so"
+  path: "/home/lobuntu/go/src/test_plugin/plug1/plug1.tgz.base64"
   params: "--verbose -n veradco"
 - name: "plug2"
   path: "/home/lobuntu/go/src/test_plugin/plug2/plug.so"
