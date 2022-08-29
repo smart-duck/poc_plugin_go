@@ -1,0 +1,22 @@
+FROM golang:1.19 as build
+WORKDIR /app
+ COPY go.mod .
+ COPY go.sum .
+
+ RUN go mod download
+COPY . .
+RUN CGO_ENABLED=1 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o veradco_dummy *.go
+
+RUN CGO_ENABLED=1 GCCGO="gccgo" GOOS=linux go build -a -ldflags '-extldflags "-static"' -buildmode=plugin -o plug1/plug.so plug1/plug.go
+
+# FROM gcr.io/distroless/base
+# FROM alpine:3.16
+FROM golang:1.19
+COPY --from=build /app/ /home/lobuntu/go/src/test_plugin/
+RUN mkdir -p /home/lobuntu/go/src/test_plugin/
+# COPY . /home/lobuntu/go/src/test_plugin/
+RUN chmod +x /home/lobuntu/go/src/test_plugin/veradco_dummy
+# EXPOSE 8443
+
+CMD ["ls", "-lRt", "/home/lobuntu/go/src/test_plugin/"]
+# CMD ["/home/lobuntu/go/src/test_plugin/veradco_dummy"]

@@ -3,3 +3,4 @@
 *.tgz*
 veradco_dummy
 tests/
+plug1/plug.so
