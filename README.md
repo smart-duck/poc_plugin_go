@@ -26,3 +26,12 @@ base64 plug1/plug.tgz > plug1/plug1.tgz.base64
 [Not retained] cp -f plug1/plug.yaml.tmpl plug1/plug.yaml;base64 plug1/plug.tgz >> plug1/plug.yaml
 
 cp -f plug1/plug.yaml.tmpl plug1/plug.yaml;base64 plug1/plug.tgz | sed -E 's/(^.+$)/  \1/g' >> plug1/plug.yaml
+
+# Docker
+
+sudo docker build -t veradco/dummy:0.1 .
+sudo docker run --rm veradco/dummy:0.1
+
+# Bulk
+
+kubectl -n ns-test create configmap plug1 --from-file=plug1/plug.so

@@ -2,3 +2,4 @@
 *.so.kept
 *.tgz*
 veradco_dummy
+tests/

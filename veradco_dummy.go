@@ -132,9 +132,11 @@ func main() {
 			// }
 		}
 
+		fmt.Printf("Plugin path: %s\n", path)
+
 		plug, err := plugin.Open(path)
 		if err != nil {
-			fmt.Printf("Unable to load plugin %s: %v", v.Name, err)
+			fmt.Printf("Unable to load plugin %s: %v\n", v.Name, err)
 			continue
 		}
 		pluginHandler, err := plug.Lookup("VeradcoPlugin")
